@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    @EnvironmentObject var userStore: UserStore
+    
+    
     @AppStorage("userName") var userName: String = ""
     @State private var inputName: String = ""
     @State private var showNameField: Bool = false
@@ -92,6 +95,11 @@ struct OnboardingView: View {
     private func saveAndStart() {
         let trimmed = inputName.trimmingCharacters(in: .whitespaces)
         guard !trimmed.isEmpty else { return }
+        
+        let newUser = UserModel(id: UUID(), name: trimmed, joinedPostIDs: [])
+        userStore.currentUser = newUser
+        userStore.save()
+        
         userName = trimmed
     }
 }

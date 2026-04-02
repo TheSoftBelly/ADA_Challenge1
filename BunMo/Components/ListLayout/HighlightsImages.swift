@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct HighlightsImages: View {
+    @EnvironmentObject var userStore: UserStore
+
     var posts: [Post] {
-        Array(SampleDataSet.posts
+        Array(userStore.posts
             .sorted { $0.currentParticipants.count > $1.currentParticipants.count }
             .prefix(5))
     }
@@ -33,6 +35,7 @@ struct HighlightsImages: View {
 
 #Preview {
     HighlightsImages()
+        .environmentObject(UserStore())
 }
 
 //폰트위계, 레이아웃잡기 4의배수

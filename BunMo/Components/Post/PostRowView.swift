@@ -18,25 +18,21 @@ struct PostRowView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             
-            // 1. 제목
             Text(post.title)
                 .font(.headline)
-            
-            // 2. 작성자 + 모임 시간
+
             HStack {
                 Label(post.author, systemImage: "person.fill")
                 Spacer()
-                Label( formatter.string(from: post.meetingTime), systemImage: "clock.fill") // Date를 String으로 어떻게?
+                Label( formatter.string(from: post.meetingTime), systemImage: "clock.fill")
             }
             .font(.caption)
             .foregroundStyle(.secondary)
             
-            // 3. 참여 인원
             Label("\(post.currentParticipants.count) / \(post.maxParticipants)명",
                   systemImage: "person.2.fill")
                 .font(.caption)
             
-            // 4. 태그
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(post.tags, id: \.self) { tag in

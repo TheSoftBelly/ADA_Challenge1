@@ -18,18 +18,20 @@ struct ContentView: View {
                     Tab("Home", systemImage: "house.fill") {
                         HomeView()
                     }
-                    Tab("More", systemImage: "line.3.horizontal"){
-                        MoreView()
+                    Tab(role: .search) {
+                        NavigationStack {
+                            SearchView()
+                        }
                     }
-                    
+
                 }
                 .navigationBarTitle("BunMo")
                 .tint(.purple)
-                // 홈
             }
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(UserStore())
 }

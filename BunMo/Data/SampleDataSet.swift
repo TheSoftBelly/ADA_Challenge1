@@ -9,7 +9,6 @@ import Foundation
 
 struct SampleDataSet {
     static let posts: [Post] = [
-        // MARK: - 밥먹자 (eat)
         Post(id: UUID(), title: "강남역 근처 라멘 같이 먹어요!", image: "simpleImage1", content: "추운 날씨에 따뜻한 라멘 한 그릇 어때요? 맛집 알고 있어요!", writedDate: Date(), contentType: .eat, meetingTime: makeDate(hour: 12, minute: 0), author: "김민준", maxParticipants: 4, currentParticipants: [], tags: ["라멘", "일식", "강남"], isRead: false, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
         Post(id: UUID(), title: "점심 같이 드실 분!", image: "simpleImage1", content: "학교 근처 한식 뷔페 같이 가실 분 구해요~", writedDate: Date(), contentType: .eat, meetingTime: makeDate(hour: 12, minute: 30), author: "이서연", maxParticipants: 3, currentParticipants: [], tags: ["한식", "뷔페", "점심"], isRead: false, isFavorite: true, isHighlighted: false, isPinned: false, isArchived: false),
         Post(id: UUID(), title: "삼겹살 번개 🔥", image: "simpleImage1", content: "오늘 저녁 삼겹살 구워먹을 사람~", writedDate: Date(), contentType: .eat, meetingTime: makeDate(hour: 18, minute: 0), author: "박지호", maxParticipants: 6, currentParticipants: [], tags: ["삼겹살", "고기", "저녁"], isRead: true, isFavorite: false, isHighlighted: true, isPinned: false, isArchived: false),
@@ -35,8 +34,6 @@ struct SampleDataSet {
         Post(id: UUID(), title: "스테이크 번개 🥩", image: "simpleImage3", content: "합리적인 가격의 스테이크 맛집 발견!", writedDate: Date(), contentType: .eat, meetingTime: makeDate(hour: 19, minute: 0), author: "박태준", maxParticipants: 4, currentParticipants: [], tags: ["스테이크", "양식", "저녁"], isRead: false, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
         Post(id: UUID(), title: "아이스크림 투어 🍦", image: "simpleImage3", content: "홍대 아이스크림 맛집 투어 같이 해요!", writedDate: Date(), contentType: .eat, meetingTime: makeDate(hour: 14, minute: 0), author: "최지아", maxParticipants: 5, currentParticipants: [], tags: ["아이스크림", "홍대", "디저트"], isRead: false, isFavorite: true, isHighlighted: false, isPinned: false, isArchived: false),
         Post(id: UUID(), title: "순두부찌개 같이 먹어요", image: "simpleImage3", content: "뚝배기 순두부찌개 맛집 알아요!", writedDate: Date(), contentType: .eat, meetingTime: makeDate(hour: 12, minute: 0), author: "강예은", maxParticipants: 3, currentParticipants: [], tags: ["순두부", "찌개", "한식"], isRead: true, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
-
-        // MARK: - 놀자 (hangout)
         Post(id: UUID(), title: "보드게임 카페 같이 가요!", image: "simpleImage3", content: "보드게임 카페 가실 분! 초보도 환영해요~", writedDate: Date(), contentType: .hangout, meetingTime: makeDate(hour: 14, minute: 0), author: "김도현", maxParticipants: 6, currentParticipants: [], tags: ["보드게임", "카페", "실내"], isRead: false, isFavorite: false, isHighlighted: true, isPinned: false, isArchived: false),
         Post(id: UUID(), title: "한강 피크닉 🌸", image: "simpleImage3", content: "날씨 좋은데 한강 피크닉 어때요?", writedDate: Date(), contentType: .hangout, meetingTime: makeDate(hour: 15, minute: 0), author: "이나연", maxParticipants: 8, currentParticipants: [], tags: ["한강", "피크닉", "야외"], isRead: false, isFavorite: true, isHighlighted: false, isPinned: true, isArchived: false),
         Post(id: UUID(), title: "노래방 번개 🎤", image: "simpleImage3", content: "스트레스 풀러 노래방 가실 분!", writedDate: Date(), contentType: .hangout, meetingTime: makeDate(hour: 19, minute: 0), author: "박민서", maxParticipants: 5, currentParticipants: [], tags: ["노래방", "음악", "스트레스해소"], isRead: true, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
@@ -63,7 +60,6 @@ struct SampleDataSet {
         Post(id: UUID(), title: "방방곡곡 드라이브 🚗", image: "simpleImage1", content: "드라이브 같이 하실 분! 야경 코스 알아요", writedDate: Date(), contentType: .hangout, meetingTime: makeDate(hour: 22, minute: 0), author: "류민아", maxParticipants: 3, currentParticipants: [], tags: ["드라이브", "야경", "야외"], isRead: false, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
         Post(id: UUID(), title: "방구석 영화 파티 🍿", image: "simpleImage1", content: "넷플릭스 같이 볼 분! 과자 준비해요", writedDate: Date(), contentType: .hangout, meetingTime: makeDate(hour: 20, minute: 0), author: "노승호", maxParticipants: 4, currentParticipants: [], tags: ["영화", "넷플릭스", "실내"], isRead: false, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
 
-        // MARK: - 운동하자 (exercise)
         Post(id: UUID(), title: "아침 러닝 같이해요 🏃", image: "simpleImage1", content: "한강에서 아침 러닝 같이 하실 분!", writedDate: Date(), contentType: .exercise, meetingTime: makeDate(hour: 6, minute: 30), author: "김태양", maxParticipants: 5, currentParticipants: [], tags: ["러닝", "한강", "아침"], isRead: false, isFavorite: false, isHighlighted: true, isPinned: false, isArchived: false),
         Post(id: UUID(), title: "헬스장 같이 가요 💪", image: "simpleImage2", content: "PT 없이 같이 운동할 파트너 구해요!", writedDate: Date(), contentType: .exercise, meetingTime: makeDate(hour: 7, minute: 0), author: "이준서", maxParticipants: 2, currentParticipants: [], tags: ["헬스", "근력운동", "아침"], isRead: false, isFavorite: true, isHighlighted: false, isPinned: false, isArchived: false),
         Post(id: UUID(), title: "배드민턴 치실 분!", image: "simpleImage2", content: "배드민턴 코트 예약했어요! 같이 치러 가요", writedDate: Date(), contentType: .exercise, meetingTime: makeDate(hour: 18, minute: 0), author: "박소연", maxParticipants: 4, currentParticipants: [], tags: ["배드민턴", "라켓", "실내"], isRead: true, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
@@ -90,7 +86,6 @@ struct SampleDataSet {
         Post(id: UUID(), title: "골프 연습장 가요 ⛳", image: "simpleImage3", content: "스크린 골프 말고 진짜 연습장 가실 분!", writedDate: Date(), contentType: .exercise, meetingTime: makeDate(hour: 17, minute: 0), author: "강지훈", maxParticipants: 3, currentParticipants: [], tags: ["골프", "연습장", "야외"], isRead: true, isFavorite: true, isHighlighted: false, isPinned: false, isArchived: false),
         Post(id: UUID(), title: "댄스 기초 배워요 💃", image: "simpleImage3", content: "댄스 입문 클래스 같이 등록해요!", writedDate: Date(), contentType: .exercise, meetingTime: makeDate(hour: 19, minute: 30), author: "백소율", maxParticipants: 6, currentParticipants: [], tags: ["댄스", "기초", "클래스"], isRead: false, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
 
-        // MARK: - 공부하자 (study)
         Post(id: UUID(), title: "SwiftUI 스터디 같이해요!", image: "simpleImage3", content: "iOS 개발 입문자 스터디 모집! 매주 1회 진행", writedDate: Date(), contentType: .study, meetingTime: makeDate(hour: 14, minute: 0), author: "김준호", maxParticipants: 5, currentParticipants: [], tags: ["SwiftUI", "iOS", "스터디"], isRead: false, isFavorite: true, isHighlighted: true, isPinned: true, isArchived: false),
         Post(id: UUID(), title: "영어 회화 스터디 🗣️", image: "simpleImage3", content: "원어민과 영어 회화 연습 같이 해요!", writedDate: Date(), contentType: .study, meetingTime: makeDate(hour: 10, minute: 0), author: "이민경", maxParticipants: 4, currentParticipants: [], tags: ["영어", "회화", "스터디"], isRead: false, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
         Post(id: UUID(), title: "카페 공부 같이해요 ☕", image: "simpleImage3", content: "공부 카페에서 같이 집중하실 분!", writedDate: Date(), contentType: .study, meetingTime: makeDate(hour: 13, minute: 0), author: "박현진", maxParticipants: 4, currentParticipants: [], tags: ["카공", "카페", "집중"], isRead: true, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
@@ -115,7 +110,6 @@ struct SampleDataSet {
         Post(id: UUID(), title: "스페인어 스터디 🇪🇸", image: "simpleImage2", content: "스페인어 A1 레벨 같이 공부해요!", writedDate: Date(), contentType: .study, meetingTime: makeDate(hour: 10, minute: 0), author: "임해린", maxParticipants: 4, currentParticipants: [], tags: ["스페인어", "외국어", "A1"], isRead: false, isFavorite: false, isHighlighted: false, isPinned: false, isArchived: false),
     ]
 
-    // MARK: - Helper
     static func makeDate(hour: Int, minute: Int) -> Date {
         let calendar = Calendar.current
         var components = calendar.dateComponents([.year, .month, .day], from: Date())

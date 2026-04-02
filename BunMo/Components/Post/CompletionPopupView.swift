@@ -17,7 +17,6 @@ struct CompletionPopupView: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 20) {
-                // 체크 아이콘
                 ZStack {
                     Circle()
                         .fill(post.contentType.color.opacity(0.15))
@@ -35,7 +34,6 @@ struct CompletionPopupView: View {
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
 
-                // 홈으로 버튼
                 Button(action: onDismiss) {
                     Text("홈으로 돌아가기")
                         .font(.subheadline.bold())

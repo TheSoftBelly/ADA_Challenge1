@@ -19,11 +19,13 @@ struct RecommandList: View {
             HStack {
                 Text("추천 모임")
                     .font(.title.bold())
+                    .lineLimit(1)
                 Spacer()
                 NavigationLink(destination: PostListView(posts: recommandPosts, title: "추천 모임")) {
                     Image(systemName: "arrowshape.forward.circle.fill")
                         .font(.title2)
                 }
+                .fixedSize()
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
@@ -31,6 +33,7 @@ struct RecommandList: View {
                         NavigationLink(destination: PostDetailView(post: post)) {
                             MeetingInfoBox(post: post)
                                 .frame(width: 180, height: 240)
+                                .cornerRadius(8)
                         }
                         .buttonStyle(.plain)
                     }

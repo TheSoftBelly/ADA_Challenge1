@@ -33,8 +33,6 @@ struct ContentTypeGridView: View {
                             )
                     }
                 }
-                // 여기에 각 카테고리 버튼 디자인해봐
-                // type.icon, type.color, type.displayName 활용!
             }
         }
     }

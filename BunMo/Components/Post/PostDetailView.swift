@@ -9,21 +9,22 @@ import SwiftUI
 
 struct PostDetailView: View {
     let post: Post
-
+    
+    @EnvironmentObject var userStore : UserStore
     @Environment(\.dismiss) var dismiss
     @State private var showCompletionPopup: Bool = false
+    @State private var isJoined: Bool = false
+    
+
 
     var body: some View {
         ZStack(alignment: .bottom) {
 
-            // MARK: - 스크롤 콘텐츠
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
 
-                    // 상단 헤더 (이미지 + 오버레이 + 배지)
                     PostDetailHeaderView(post: post)
 
-                    // 정보 + 태그
                     VStack(alignment: .leading, spacing: 20) {
                         PostDetailInfoView(post: post)
                         PostDetailTagsView(post: post)
@@ -34,15 +35,20 @@ struct PostDetailView: View {
             }
             .ignoresSafeArea(edges: .top)
 
-            // MARK: - 하단 슬라이더 패널
             VStack(spacing: 0) {
                 UnevenRoundedRectangle(topLeadingRadius: 30, topTrailingRadius: 30)
                     .fill(.background)
                     .frame(height: 110)
                     .shadow(color: .black.opacity(0.1), radius: 20, y: -5)
                     .overlay(alignment: .top) {
-                        JoinSliderView(post: post) {
-                            showCompletionPopup = true
+                        JoinSliderView(
+                            isCompleted: $isJoined,
+                            tint: post.contentType.color,
+                            label: "밀어서 참여하기 →",
+                            completedLabel: "참여 완료!"
+                        )
+                        .onChange(of: isJoined) { _, joined in
+                            if joined { showCompletionPopup = true }
                         }
                         .padding(.top, 24)
                         .padding(.horizontal, 32)
@@ -50,9 +56,9 @@ struct PostDetailView: View {
             }
             .ignoresSafeArea(edges: .bottom)
 
-            // MARK: - 완료 팝업
             if showCompletionPopup {
                 CompletionPopupView(post: post) {
+                    userStore.joinPost(postId: post.id)
                     dismiss()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         dismiss()

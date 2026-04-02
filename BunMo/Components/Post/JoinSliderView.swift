@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct JoinSliderView: View {
-    let post: Post
-    let onCompleted: () -> Void
+    @Binding var isCompleted: Bool
+    var tint: Color = .blue
+    var label: String = "밀어서 확인하기 →"
+    var completedLabel: String = "완료!"
 
     @State private var dragOffset: CGFloat = 0
-    @State private var isCompleted: Bool = false
 
     private let sliderHeight: CGFloat = 60
     private let handleSize: CGFloat = 52
@@ -22,16 +23,14 @@ struct JoinSliderView: View {
             let maxDrag = geo.size.width - handleSize - 8
 
             ZStack(alignment: .leading) {
-                // 트랙 배경
                 Capsule()
-                    .fill(post.contentType.color.opacity(0.15))
+                    .fill(tint.opacity(0.15))
                     .frame(height: sliderHeight)
 
-                // 채워지는 트랙
                 Capsule()
                     .fill(
                         LinearGradient(
-                            colors: [post.contentType.color.opacity(0.4), post.contentType.color],
+                            colors: [tint.opacity(0.4), tint],
                             startPoint: .leading,
                             endPoint: .trailing
                         )
@@ -39,23 +38,21 @@ struct JoinSliderView: View {
                     .frame(width: handleSize + dragOffset + 4, height: sliderHeight)
                     .animation(.interactiveSpring(), value: dragOffset)
 
-                // 안내 텍스트
                 HStack {
                     Spacer()
-                    Text(isCompleted ? "참여 완료!" : "밀어서 참여하기 →")
+                    Text(isCompleted ? completedLabel : label)
                         .font(.subheadline.bold())
-                        .foregroundStyle(post.contentType.color.opacity(0.7))
+                        .foregroundStyle(tint.opacity(0.7))
                     Spacer()
                 }
 
-                // 드래그 핸들
                 Circle()
                     .fill(.white)
                     .frame(width: handleSize, height: handleSize)
-                    .shadow(color: post.contentType.color.opacity(0.4), radius: 8)
+                    .shadow(color: tint.opacity(0.4), radius: 8)
                     .overlay {
                         Image(systemName: isCompleted ? "checkmark" : "chevron.right.2")
-                            .foregroundStyle(post.contentType.color)
+                            .foregroundStyle(tint)
                             .font(.system(size: 16, weight: .bold))
                     }
                     .offset(x: min(max(dragOffset, 0), maxDrag) + 4)
@@ -71,9 +68,6 @@ struct JoinSliderView: View {
                                     withAnimation(.spring()) {
                                         dragOffset = maxDrag
                                         isCompleted = true
-                                    }
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                        onCompleted()
                                     }
                                 } else {
                                     withAnimation(.spring()) {

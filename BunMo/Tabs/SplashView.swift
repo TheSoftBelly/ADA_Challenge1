@@ -10,11 +10,11 @@ import SwiftUI
 struct SplashView: View {
     @State private var isActive = false
     
+    
     var body: some View {
         if isActive {
             ContentView()
         } else {
-            // 로고나 앱 이름 보여주기
             VStack {
                 Image("BunMoLogo")
                     .resizable()

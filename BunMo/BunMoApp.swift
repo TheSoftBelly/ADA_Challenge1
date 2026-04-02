@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct BunMoApp: App {
+    @StateObject var userStore = UserStore()
+    
     var body: some Scene {
         WindowGroup {
             SplashView()
+                .environmentObject(userStore)
         }
     }
 }

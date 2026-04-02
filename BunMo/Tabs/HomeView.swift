@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var userStore : UserStore
+    
+    var joinedPosts: [Post] {
+        userStore.posts.filter { post in
+            userStore.currentUser?.joinedPostIDs.contains(post.id) ?? false
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
                 ScrollView(.vertical) {
                     VStack(alignment: .leading) {
+                        JoinCardView(posts: joinedPosts)
+                        
                         HighlightsImages()
                         Divider()
                             .padding(.horizontal, 8)

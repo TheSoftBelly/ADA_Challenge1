@@ -17,11 +17,11 @@ struct Post: Identifiable {
     let meetingTime: Date
     let author: String
     let maxParticipants: Int
-    let currentParticipants: [UUID]
+    var currentParticipants: [UUID]
     let tags: [String]
-    let isRead: Bool
-    let isFavorite: Bool
-    let isHighlighted: Bool
-    let isPinned: Bool
-    let isArchived: Bool
+    var isRead: Bool
+    var isFavorite: Bool
+    var isHighlighted: Bool
+    var isPinned: Bool
+    var isArchived: Bool
 }
